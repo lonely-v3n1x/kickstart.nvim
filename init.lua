@@ -162,6 +162,7 @@ vim.opt.scrolloff = 10
 
 vim.keymap.set('n', '<S-h>', ':tabprevious<CR>') -- use shift h to move to previous tab
 vim.keymap.set('n', '<S-l>', ':tabnext<CR>') -- use shift l to move to next tab
+vim.keymap.set('n', '<S-n>', ':tabnew<CR>') -- use shift n to create a new tab
 vim.keymap.set('n', '<leader>w', ':w<CR>')
 vim.keymap.set('n', '<leader>q', ':q!<CR>')
 
@@ -631,6 +632,13 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        cssls = {},
+        html = {},
+        emmet_ls = {},
+        eslint_d = {},
+        eslint = {},
+        emmet_language_server = {},
+        biome = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -661,6 +669,10 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'eslint',
+        'eslint_d',
+        'html',
+        'cssls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -937,7 +949,7 @@ require('lazy').setup({
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
