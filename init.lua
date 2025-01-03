@@ -164,7 +164,7 @@ vim.keymap.set('n', '<S-h>', ':tabprevious<CR>') -- use shift h to move to previ
 vim.keymap.set('n', '<S-l>', ':tabnext<CR>') -- use shift l to move to next tab
 vim.keymap.set('n', '<S-n>', ':tabnew<CR>') -- use shift n to create a new tab
 vim.keymap.set('n', '<leader>w', ':w<CR>')
-vim.keymap.set('n', '<leader>q', ':q!<CR>')
+vim.keymap.set('n', '<leader>q', '<CMD>q!<CR>')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -622,7 +622,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
