@@ -162,7 +162,7 @@ vim.opt.scrolloff = 10
 
 vim.keymap.set('n', '<S-h>', ':tabprevious<CR>') -- use shift h to move to previous tab
 vim.keymap.set('n', '<S-l>', ':tabnext<CR>') -- use shift l to move to next tab
-vim.keymap.set('n', '<S-n>', ':tabnew<CR>') -- use shift n to create a new tab
+vim.keymap.set('n', '<S-c>', ':tabnew<CR>') -- use shift n to create a new tab
 vim.keymap.set('n', '<leader>w', ':w<CR>')
 vim.keymap.set('n', '<leader>q', '<CMD>q!<CR>')
 
@@ -622,7 +622,8 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        pyright = {},
+        -- pyright = {},
+        ruff = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -673,6 +674,7 @@ require('lazy').setup({
         'eslint_d',
         'html',
         'cssls',
+        'ruff',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -726,7 +728,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'isort', 'black' },
+        python = { 'ruff', 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
